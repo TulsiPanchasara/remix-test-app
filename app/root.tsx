@@ -9,9 +9,11 @@ import {
   Scripts,
   ScrollRestoration
 } from "remix";
-import toDoListReducer from "./components/ReduxStore/reducer";
+import configureStore from "./components/ReduxStore/store";
+// import toDoListReducer from "./components/ReduxStore/createStore";
 import indexStyles from './styles/index.css';
 import tailwindStyles from './styles/tailwind.css';
+
 
 
 
@@ -26,7 +28,8 @@ export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
 };
 
-const store = createStore(toDoListReducer)
+
+const store = createStore(configureStore)
 
 
 export default function App() {

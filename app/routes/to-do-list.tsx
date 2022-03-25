@@ -1,4 +1,5 @@
 import { json, LoaderFunction, Outlet, Scripts, ScrollRestoration, useLoaderData } from "remix";
+import ChildComponent from "~/components/ChildComponent";
 import FirstComponent from "~/components/FirstComponent";
 import { getAllToDos, ToDos } from "~/db";
 
@@ -27,6 +28,8 @@ export default function ToDoListIndex() {
 <br />
             <br/>
             <FirstComponent/>
+            <br />
+            <ChildComponent/>
             <br />
             <a href="/" className="text-customBlue-4 underline" >GO TO HOME PAGE</a>
             

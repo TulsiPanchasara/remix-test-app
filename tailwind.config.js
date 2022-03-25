@@ -58,9 +58,10 @@ module.exports = {
         // 15: '#f2f2f2',
       },
       customRed: {
-        1: '#f01818'
+        1: '#f01818',
+        2: 'green'
         // 3: '#fa392f',
-        // 4: '#DE2B24'
+        // 4: '#DE2B24',
       },
       customPink: {
         1: '#ff5f9f',

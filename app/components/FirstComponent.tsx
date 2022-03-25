@@ -1,23 +1,33 @@
-import { useDispatch, useSelector } from "react-redux";
-import { counterSlice, increment } from "./ReduxStore/reducer";
+import { connect } from "react-redux";
 
 
-const FirstComponent = () => {
-  console.log("this isssss====", counterSlice.getInitialState())
-    const counter = useSelector((state: any) => state.counter)
-console.log('counter',counter);
-  const { value } = counterSlice.getInitialState();
-  console.log('value',value)
-  const dispatch = useDispatch();
+const FirstComponent = (props:any) => {
+    const { value, incrementAction, decreaseAction } = props;
+
+  const click = () => {
+    const v = incrementAction();
+    console.log('v', v)
+
+  }
 
   return (
     <div className="border border-black" >
-      <div>I AM PARENT COMPONENT</div>
-      <button className="cursor-pointer" onClick={() => dispatch(increment())} >
+      <button className="cursor-pointer" onClick={() => click()} >
         CLICK ME TO CHECK REDUX EXAMPLE =========== {value}
       </button>
     </div>
   )
 }
 
-export default FirstComponent
+const mapStateToProps = state => {
+  return {
+  value: state.counterReducer.value
+}
+}
+
+const mapDispatchToProps = dispatch => ({
+  incrementAction: () => dispatch({ type: 'counter/incremented' }),
+  decreaseAction: () =>  dispatch({type: 'counter/decremented'})
+})
+
+export default connect(mapStateToProps, mapDispatchToProps )(FirstComponent)
