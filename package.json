@@ -1,0 +1,40 @@
+{
+  "name": "remix-app-template",
+  "private": true,
+  "description": "",
+  "license": "",
+  "sideEffects": false,
+  "scripts": {
+    "postinstall": "remix setup node",
+    "start": "cross-env NODE_ENV=production remix-serve build",
+    "build-tailwind": "npx tailwindcss build .app/styles/tailwind.css -o .app/styles/main.css",
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -o ./app/styles/tailwind.css",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "dev:css": "tailwindcss -o ./app/styles/tailwind.css --watch"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.0",
+    "@remix-run/react": "^1.2.3",
+    "@remix-run/serve": "^1.2.3",
+    "cross-env": "^7.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "remix": "^1.2.3"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.2.3",
+    "@remix-run/eslint-config": "^1.2.3",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "concurrently": "^7.0.0",
+    "eslint": "^8.9.0",
+    "remix-css": "^2.2.0",
+    "tailwindcss": "^3.0.23",
+    "typescript": "^4.5.5"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
